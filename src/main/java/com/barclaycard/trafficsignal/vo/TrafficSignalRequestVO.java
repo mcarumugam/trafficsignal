@@ -1,12 +1,8 @@
 package com.barclaycard.trafficsignal.vo;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.validation.constraints.Min;
-
 public class TrafficSignalRequestVO {
 
-    @NotEmpty
+    @Min(value = 0L, message = "The value must be positive")
     private Integer seconds;
 
     public Integer getSeconds() {

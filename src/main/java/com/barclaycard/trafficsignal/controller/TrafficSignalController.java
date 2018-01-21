@@ -1,5 +1,6 @@
 package com.barclaycard.trafficsignal.controller;
 
+import com.barclaycard.trafficsignal.config.ServiceConstants;
 import com.barclaycard.trafficsignal.util.GetSignalUtil;
 import com.barclaycard.trafficsignal.vo.ServiceErrorVO;
 import com.barclaycard.trafficsignal.vo.TrafficSignalRequestVO;
@@ -31,11 +32,13 @@ public class TrafficSignalController {
             ServiceErrorVO errorVO = new ServiceErrorVO();
             errorVO.setErrorCode(bindingResult.getFieldError().getCode());
             errorVO.setMessage(bindingResult.getFieldError().getDefaultMessage());
+            responseVO.setStatus(ServiceConstants.BAD_REQUEST);
             responseVO.setErrorVO(errorVO);
         }else {
             LOGGER.debug("*********** Call GetSignal for the seconds = " + requestVO.getSeconds() + "************ ");
             ZonedDateTime processBeginTime= ZonedDateTime.now();
             responseVO.setSeconds(GetSignalUtil.currentTraffic(requestVO.getSeconds()));
+            responseVO.setStatus(ServiceConstants.SUCCESS);
             long duration = ChronoUnit.MILLIS.between(processBeginTime,ZonedDateTime.now());
             LOGGER.debug("Time Taken : {} in milli seconds for {} seconds to calculate the traffic",duration, requestVO.getSeconds());
 
