@@ -30,14 +30,15 @@ Write a program that controls the traffic signals for a four-way intersection. I
  	8: N = 5; S = 5; E = 6; W = 6
 ```
 
+# Solution:
 
-Implementaion  :1
+### Implementation  : 1 ( Standalone Java File )
 
 Standard Java file that produce the output for the above "Traffic Singal Scenario"
 
 File Location : https://github.com/mcarumugam/trafficsignal/blob/master/src/main/java/com/barclaycard/trafficsignal/TrafficSignal.java
 
-REST Service Implementaion:
+### Implementation : 2 (REST Service) 
 
 Pre- request :
     JDK1.8 above
